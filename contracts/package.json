@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.1",
+    "hardhat": "^2.12.6",
+    "solhint": "^3.3.7"
+  },
+  "dependencies": {
+    "ethers": "^5.7.2"
+  },
+  "scripts": {
+    "functions": "cd functions/ && npm run start"
+  }
+}

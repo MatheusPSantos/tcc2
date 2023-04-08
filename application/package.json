@@ -1,0 +1,25 @@
+{
+  "name": "application",
+  "version": "1.0.0",
+  "description": "Applicação frontend que será o cliente que vai consumir a api do projeto.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatheusPSantos/tcc.git"
+  },
+  "keywords": [
+    "frontend",
+    "application",
+    "client",
+    "dapp"
+  ],
+  "author": "matheuspsantos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MatheusPSantos/tcc/issues"
+  },
+  "homepage": "https://github.com/MatheusPSantos/tcc#readme"
+}
