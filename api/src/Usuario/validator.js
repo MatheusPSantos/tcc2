@@ -12,6 +12,7 @@ module.exports = {
       rg: Joi.string(),
       cpf: Joi.string().required(),
       telefone: Joi.string().required().pattern(new RegExp('(^[0-9]{2})?(\s|-)?(9?[0-9]{4})-?([0-9]{4}$)')),
+      endereco: Joi.object(),
     }),
   },
   excluir: {
