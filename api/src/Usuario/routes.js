@@ -13,11 +13,5 @@ router.post(
   UsuarioController.store,
 );
 
-router.delete(
-  '/usuarios/:email',
-  createValidator().params(excluir.params),
-  UsuarioController.excluir
-);
-
 
 module.exports = router;

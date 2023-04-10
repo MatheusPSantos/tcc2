@@ -91,6 +91,7 @@ contract Usuario {
 
     /**
      * Função que verifica se o usuario existe.
+     * Retornar true caso exista e false caso não exista.
      */
     function verificarUsuarioExiste(string memory _email)
         public
@@ -108,7 +109,7 @@ contract Usuario {
     }
 
     /**
-     * Função que realiza login, comparand o email e a senha passada como params.
+     * Função que realiza login, comparando email e a senha passada como params.
      * @param _password password do usuário
      * @param _email email do usuario
      * @return bool
