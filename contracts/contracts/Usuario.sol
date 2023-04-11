@@ -2,12 +2,10 @@
 pragma solidity ^0.8.9;
 
 /**
- * @title Contract Auth para autenticacao
+ * @title Contract Usuario para autenticacao
  * @author matheuspsantos
  */
 contract Usuario {
-    uint public contadorUsuario = 0;
-
     /**
      * Essa é a estrutura de que define o Usuário salvo dentro da blockchain.
      * Ela funciona similarmente a definição de um objeto para o nosso caso.
