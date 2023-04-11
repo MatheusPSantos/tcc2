@@ -13,10 +13,7 @@ async function fazerLogin(req, res) {
   try {
     logger.info('Iniciando requisição de login.');
     const { email, password } = req.body;
-    const USUARIO_ABI = cache.get('USUARIO_ABI');
-    const contratoInteligente = construirContratoInteligente(
-      USUARIO_ABI, process.env.USUARIO_CONTRACT_ADDRESS
-    );
+    const contratoInteligente = construirContratoInteligente('USUARIO_ABI', process.env.USUARIO_CONTRACT_ADDRESS);
 
     logger.info('Verificando se o usuário existe...');
     if (await verificaSeUsuarioExiste(contratoInteligente, email)) {

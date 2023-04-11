@@ -19,9 +19,8 @@ const assinante = getAssinante(web3);
 async function store(req, res) {
   try {
     let usuario = req.body;
-    const USUARIO_ABI = cache.get('USUARIO_ABI');
     const contratoInteligente = construirContratoInteligente(
-      USUARIO_ABI,
+      'USUARIO_ABI',
       process.env.USUARIO_CONTRACT_ADDRESS
     );
     logger.info('Verificando se existe cadastro para email informado.');

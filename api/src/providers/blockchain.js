@@ -1,6 +1,7 @@
 require('dotenv').config();
 const Web3 = require('web3');
 const logger = require('../../logger');
+const cache = require('memory-cache');
 
 function Web3HttpProvider() {
   return new Web3(new Web3.providers.HttpProvider(
@@ -24,12 +25,13 @@ function getNetwork() {
 /**
  * Essa função constrói o contrato inteligente que poderá ser utlizado
  * no projeto para fazer as chamadas dentro do contrato.
- * @param {Array} ABI 
+ * @param {string} ABI_NAME Nome do ABI que será verificado no cache.
  * @param {string} CONTRATO_ADDRESS 
  * @returns Instância de contrato inteligente.
  */
-function construirContratoInteligente(ABI, CONTRATO_ADDRESS) {
+function construirContratoInteligente(ABI_NAME = '', CONTRATO_ADDRESS) {
   try {
+    const ABI = cache.get(ABI_NAME);
     if (ABI && Array.isArray(ABI)) {
       const web3 = Web3HttpProvider();
       const assinante = getAssinante(web3);
