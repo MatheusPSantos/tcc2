@@ -11,7 +11,7 @@ contract Usuario {
     /**
      * Essa é a estrutura de que define o Usuário salvo dentro da blockchain.
      * Ela funciona similarmente a definição de um objeto para o nosso caso.
-    */
+     */
     struct DetalheUsuario {
         string username;
         string email;
@@ -109,19 +109,16 @@ contract Usuario {
     }
 
     /**
-     * Função que realiza login, comparando email e a senha passada como params.
-     * @param _password password do usuário
+     * Função que realiza login, comparando email passada como params.
      * @param _email email do usuario
      * @return bool
      */
-    function fazerLogin(string memory _password, string memory _email)
+    function fazerLogin(string memory _email)
         public
         view
         returns (DetalheUsuario memory)
     {
         if (
-            (keccak256(abi.encodePacked(listaDeUsuarios[_email].password)) ==
-                keccak256(abi.encodePacked(_password))) &&
             (keccak256(abi.encodePacked(listaDeUsuarios[_email].email)) ==
                 keccak256(abi.encodePacked(_email)))
         ) {

@@ -2,6 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const app = express();
 
+let count = 0;
 /**
  * Validando a origem da requisição.
  */
@@ -28,7 +29,8 @@ app.use((req, res, next) => {
 app.get('/abi/:contratoNome', (req, res) => {
   try {
     const { contratoNome } = req.params;
-    console.info(`Consultando contrato ${contratoNome} ...`);
+    console.info(`Consultando contrato ${contratoNome} ... ${count}`);
+    count++;
 
     if (!contratoNome) res.status(404).send({ error: 'Informe um nome de contrato para pesquisarmos o ABI.' });
 

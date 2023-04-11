@@ -9,4 +9,8 @@ module.exports = {
   checarSenhasIguais: (senha, senhaRepetida) => {
     return senha === senhaRepetida;
   },
+
+  compararSenhas: async (senhaPlena, senhaHash) => {
+    return await bcrypt.compare(senhaPlena, senhaHash);
+  },
 };
