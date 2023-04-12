@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const { HttpStatusCode } = require("axios");
-const { NotificarErroAoSlack } = require("../../exceptions");
+
 const { ABI } = require('../../../contracts');
 const { Web3HttpProvider, getAssinante } = require('../../providers/blockchain');
 
@@ -18,7 +18,7 @@ async function login(req, res) {
     const contratoInteligente = new web3.eth.Contract(usuarioContratoABI, process.env.USUARIO_CONTRACT_ADDRESS);
     // regras de negócio para a funcionalidade de login
     const usuarioExiste = await contratoInteligente.methods.verificarUsuarioExiste(email).call();
-    if(!usuarioExiste) {
+    if (!usuarioExiste) {
       return res.status(HttpStatusCode.NotFound).send('Usuário não existe.');
     }
     const estaLogado = await contratoInteligente.methods
@@ -54,7 +54,6 @@ async function login(req, res) {
 
 
   } catch (error) {
-    NotificarErroAoSlack('Blockchain/controllers/auth.js', error);
     res.status(HttpStatusCode.InternalServerError).json({ error: error.message });
     throw new Error(error);
   }
